@@ -16,34 +16,81 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
 	<style type="text/css">
 	body{
-    	background-image: url("img/bg2.jpeg");
+    	background-image: url("img/bindex.jpg");
     	background-repeat: no-repeat;
     	background-size: cover;
     	width: 100%;
     	height: 100%;
     }
     </style>
-	</head>
+</head>
 
-<body>
-	<div >
-		<h1 align="center" style="color:navy;"><b>FIND  YOUR  BEST  CAR  HERE!!!</b></h1>
-		<h2 align="left" style="color:balck"><b>ENTER  ALL  YOUR  FILTER CONDITIONS</b></h2>
-	</div>	
+<body class="FILTER_PAGE">
 	<div>
-	<form action="data1.php"  method="post" >
-                               *<input type="text" name="" placeholder=""/></br>
-                               *<input type="text" name="" placeholder="" /></br>
-                               *<input type="text" name="" placeholder="" /></br>
-                               *<input type="text" name="" placeholder="" /></br>
-                                </br>
-                                <input type="submit" value="SUBMIT"  style=" position: relative; right: 10px; bottom: 10px;height:50px; width:100px"/> 
+		<form id="carform" action="data.php"  method="post" >
+							<h1 align="center" 	style="color:white;"><b><i>	FIND  YOUR  BEST  CAR  HERE!!!</i></b></h1></br></br>
+							<h2 align="center" 	style="color:white;"><b><u>	ENTER  ALL  YOUR  FILTER CONDITIONS</u></b></h2>
+							              <p>
+                               <label align="center" style="color:white;"><b>MAKE<b><br/>
+                               <select name="make" >
+                                  <option    value="%">--select--</option>
+                               <?php
+                                include 'config.php';
+                                
+                                $query="SELECT  distinct(make) from cars_details order by make";
+                                $result=mysqli_query($conn,$query);
+                                while($row=mysqli_fetch_array($result))
+                                {
+                                  echo '<option    value="'.$row['make'].'">'.$row['make'].'</option>';
+                                }
+                              ?>
+                            </select></br>
+                            </p> 
+                            <p>
+                               <label align="center" style="color:white;"><b>CAR TYPE<b><br/>
+                               <select name="c_type" id="fuel" placeholder="Select">
+                                  <option    value="%">--select--</option>
+                                  <option    value="CON">Convertible</option>
+                                  <option    value="CUP">Coupe</option>
+                                  <option    value="HTB">Hatchback</option>
+                                  <option    value="SED">Sedan</option>
+                                  <option    value="SUV">SUV</option>
+                                  <option    value="TRK">Truck</option>
+                                  <option    value="WAG">Wagon</option>
+                               </select></br>
+                            </p>
+                            <p> 
+                               <label align="center" style="color:white;"><b>FUEL TYPE<b><br/>
+                               <select name="f_type" id="fuel">
+                                  <option    value="%">--select--</option>
+                                  <option    value="PTL">Petrol</option>
+                                  <option    value="DSL">Diesel</option>
+                                  <option    value="GAS">Gasoline</option>
+                                  <option    value="HBD">Hybrid</option>
+                               </select></br>
+                            </p>
+							              <p>
+								                <label align="center" style="color:white;"><b>MILEAGE<b><br/>
+                               	<input type="text" 		name="mpg" 	 			placeholder="MPG"			 /></br>
+                            </p>   	
+                            <p>   	
+                               	<label align="center" style="color:white;"><b>PRICE<b><br/>
+                               	<input type="number" 	name="pz" 					placeholder="USD"			 /></br></br>
+                            <p>
+
+                            <p>   
+                              <label align="center" style="color:black;"><br/>
+                            	<input type="submit" 	value="FIND CAR"		style="height:100px;width:300px; color:white;background-color:black;border:10px solid green;padding:5px;align:center;"/> 
+    						            </p>
     </form> 
     <div col-md-60>
-    	 <a href="first.html"><input type="submit" value="BACK"  style=" position: relative; right: 10px; bottom: 10px;height:50px; width:100px"/></a>
-    	  </div>
-    </div>	
-	  
-	 
+      <a href="index.html">
+
+    	 	</br>
+        <label align="center" style="color:black;"><br/>
+        <input type="button" align="center" value="BACK"  style="height:100px;width:300px; color:white;background-color:black;border:10px solid red;padding:5px"/>
+      </a>
+   	</div>
+  </div>	
 </body>	   
 </html>
