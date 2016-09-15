@@ -1,8 +1,8 @@
 <?php
-   $dbhost = 'localhost';
-   $dbuser = 'root';
-   $dbpass = '';
-   $db='car_site';
+   $dbhost = 'mysql.hostinger.in';
+   $dbuser = 'u186010532_avk';
+   $dbpass = 'abhi.avk';
+   $db='	u186010532_abhi';
   // Create connection
    $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
 
